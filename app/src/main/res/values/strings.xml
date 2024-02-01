@@ -19,4 +19,5 @@
     <string name="main_activity">Main Activity</string>
     <string name="homepage">HomePage</string>
     <string name="logout">Logout</string>
+    <string name="get_book">Get Book</string>
 </resources>
