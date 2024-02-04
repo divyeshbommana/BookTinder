@@ -35,6 +35,9 @@ class Main : AppCompatActivity() {
         val bookTextView = findViewById<TextView>(R.id.book)
         val bookCoverImage = findViewById<ImageView>(R.id.book_cover)
 
+        val likeBookButton = findViewById<Button>(R.id.btn_likebook)
+        val dislikeBookButton = findViewById<Button>(R.id.btn_dislikebook)
+
         if(user == null){
             val intent = Intent(getApplicationContext(), Login::class.java)
             startActivity(intent)
@@ -63,6 +66,40 @@ class Main : AppCompatActivity() {
                 Toast.makeText(
                     baseContext,
                     "Error getting data",
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+        }
+
+        likeBookButton.setOnClickListener {
+            val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Liked")
+            data.push().setValue(bookTextView.getText().toString()).addOnSuccessListener {
+                Toast.makeText(
+                    baseContext,
+                    "Added book to liked",
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }.addOnFailureListener{
+                Toast.makeText(
+                    baseContext,
+                    "Unable to add book to liked",
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+        }
+
+        dislikeBookButton.setOnClickListener {
+            val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Disliked")
+            data.push().setValue(bookTextView.getText().toString()).addOnSuccessListener {
+                Toast.makeText(
+                    baseContext,
+                    "Added book to disliked",
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }.addOnFailureListener{
+                Toast.makeText(
+                    baseContext,
+                    "Unable to add book to disliked",
                     Toast.LENGTH_SHORT,
                 ).show()
             }

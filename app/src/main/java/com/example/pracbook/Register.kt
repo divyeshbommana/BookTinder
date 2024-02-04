@@ -12,10 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import com.google.firebase.database.database
 
 public class Register : AppCompatActivity() {
 
     val auth = Firebase.auth
+    var database = Firebase.database.reference
 
     public override fun onStart() {
         super.onStart()
@@ -71,6 +73,11 @@ public class Register : AppCompatActivity() {
                         val intent = Intent(getApplicationContext(), Main::class.java)
                         startActivity(intent)
                         finish()
+//                        var userData = HashMap<String, Array<String.Companion>>()
+//                        userData.put("Liked", (arrayOf (String)))
+//                        userData.put("Disliked", (arrayOf (String)))
+//                        database = database.child("UserPreferences").child(auth.currentUser?.uid.toString())
+//                        database.push().setValue(userData)
                     } else {
                         // If sign in fails, display a message to the user.
                         Toast.makeText(
@@ -80,6 +87,7 @@ public class Register : AppCompatActivity() {
                         ).show()
                     }
                 }
+
 
         }
 

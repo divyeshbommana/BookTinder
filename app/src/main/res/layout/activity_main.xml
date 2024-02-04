@@ -37,6 +37,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/btn_likebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/liked" />
+
+    <Button
+        android:text="@string/dilike"
+        android:id="@+id/btn_dislikebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
     <TextView
         android:layout_marginTop="50dp"
         android:id="@+id/user_details"
