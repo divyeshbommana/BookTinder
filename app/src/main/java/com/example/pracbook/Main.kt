@@ -19,14 +19,19 @@ import java.net.URL
 import kotlin.random.Random
 
 class Main : AppCompatActivity() {
+
+    // Initilizes Firebase authentication extension to auth variable
     val auth = FirebaseAuth.getInstance()
-//    private lateinit var database: DatabaseReference
+    // Initilizes Firebase realtime database extension to database variable
     var database = Firebase.database.reference
 
+    // When activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Shows the main activity page
         setContentView(R.layout.activity_main)
 
+        // Gets all elements in main activity page
         val button = findViewById<Button>(R.id.logout)
         val textView = findViewById<TextView>(R.id.user_details)
         val user = auth.getCurrentUser();
@@ -38,6 +43,9 @@ class Main : AppCompatActivity() {
         val likeBookButton = findViewById<Button>(R.id.btn_likebook)
         val dislikeBookButton = findViewById<Button>(R.id.btn_dislikebook)
 
+        // Bottom of screen to display the user's email
+        // Check if user is null, if null takes user back to login page
+        // Else sets text view to user's email
         if(user == null){
             val intent = Intent(getApplicationContext(), Login::class.java)
             startActivity(intent)
@@ -46,6 +54,7 @@ class Main : AppCompatActivity() {
             textView.setText(user.getEmail())
         }
 
+        // When "LOGOUT" button is clicked, takes user back to login activity page
         button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(getApplicationContext(), Login::class.java)
@@ -53,12 +62,19 @@ class Main : AppCompatActivity() {
             finish()
         }
 
-
+        // If "GET BOOK" button is clicked
         getBookButton.setOnClickListener {
+
+            // Gets a random integer from 0-9999
             var randomIndex = Random.nextInt(0,10000)
+
+            // Gets data inside index
             database.child("Books").child("0").child(randomIndex.toString()).get().addOnSuccessListener {
+
+                // Sets text view to title of book
                 bookTextView.setText(it.child("actualTitle").value.toString())
 
+                // Gets book URL and loads it into image view
                 val url = it.child("img").value.toString()
                 Picasso.with(this).load(url).into(bookCoverImage)
 
@@ -71,8 +87,14 @@ class Main : AppCompatActivity() {
             }
         }
 
+        // If "LIKE" button is clicked
         likeBookButton.setOnClickListener {
+
+            // Gets the data of the user in UserPreferences based on user's UID
+            // If new user, creates a new element in data base
             val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Liked")
+
+            // Pushes liked book's title into "Liked" subsection in database
             data.push().setValue(bookTextView.getText().toString()).addOnSuccessListener {
                 Toast.makeText(
                     baseContext,
@@ -88,8 +110,14 @@ class Main : AppCompatActivity() {
             }
         }
 
+        // If "DISLIKE" button is clicked
         dislikeBookButton.setOnClickListener {
+
+            // Gets the data of the user in UserPreferences based on user's UID
+            // If new user, creates a new element in data base
             val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Disliked")
+
+            // Pushes disliked book's title into "Disliked" subsection in database
             data.push().setValue(bookTextView.getText().toString()).addOnSuccessListener {
                 Toast.makeText(
                     baseContext,
