@@ -28,6 +28,7 @@ class Main : AppCompatActivity() {
     // When activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("Lifecycle", "onCreate() in MainActivity is called");
         // Shows the main activity page
         setContentView(R.layout.activity_main)
 
@@ -132,5 +133,22 @@ class Main : AppCompatActivity() {
                 ).show()
             }
         }
+    }
+    // When activity is resumed
+    override fun onResume() {
+        super.onResume()
+        Log.d("Lifecycle", "onResume() in MainActivity is called")
+    }
+
+    // When activity is paused
+    override fun onPause() {
+        super.onPause()
+        Log.d("Lifecycle", "onPause() in MainActivity is called")
+    }
+
+    // When activity is destroyed
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Lifecycle", "onDestroy() in MainActivity is called")
     }
 }
