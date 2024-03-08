@@ -39,11 +39,14 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         // Gets all elements in login activity page
+        //References components on the login Page
+        // findViewById <TypeOfComponent>(R.id.ComponentID)
         val editTextEmail = findViewById<EditText>(R.id.email)
         val editTextPassword = findViewById<EditText>(R.id.password)
         val buttonLogin = findViewById<Button>(R.id.btn_login)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         val textView = findViewById<TextView>(R.id.registerNow)
+
 
         // For "Register" text on login page
         textView.setOnClickListener {

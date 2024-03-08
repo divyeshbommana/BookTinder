@@ -42,6 +42,8 @@ class Main : AppCompatActivity() {
 
         val likeBookButton = findViewById<Button>(R.id.btn_likebook)
         val dislikeBookButton = findViewById<Button>(R.id.btn_dislikebook)
+        val profileView = findViewById<Button>(R.id.btn_profile)
+
 
         // Bottom of screen to display the user's email
         // Check if user is null, if null takes user back to login page
@@ -52,6 +54,14 @@ class Main : AppCompatActivity() {
             finish()
         }else{
             textView.setText(user.getEmail())
+        }
+
+        // For "profile" button on login page
+        profileView.setOnClickListener {
+            // If text view is clicked, starts register activity
+            val intent = Intent(getApplicationContext(), Profile::class.java)
+            startActivity(intent)
+            finish()
         }
 
         // When "LOGOUT" button is clicked, takes user back to login activity page
