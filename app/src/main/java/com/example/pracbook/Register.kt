@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -24,6 +25,7 @@ public class Register : AppCompatActivity() {
     // When app starts
     public override fun onStart() {
         super.onStart()
+        Log.d("Lifecycle", "onStart() in RegisterActivity is called");
         // Gets current user using auth, if current user is not equal to null (signed in)
         // Then it takes user to main activity page
         val currentUser = auth.currentUser
@@ -37,6 +39,7 @@ public class Register : AppCompatActivity() {
     // When user is not logged in
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("onStart", "onCreate() in LoginActivity is called");
         // Shows the register activity page
         setContentView(R.layout.activity_register)
 

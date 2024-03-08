@@ -1,55 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
-    android:gravity="center|top"
-    tools:context=".Main">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/Home_Page"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/homepage"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:gravity="center|top"
+        tools:context=".Main">
 
-    <ImageView
-        android:id="@+id/book_cover"
-        android:layout_width="200dp"
-        android:layout_height="300dp"/>
+        <TextView
+            android:id="@+id/Home_Page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/homepage"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/book"
-        android:textSize="25dp"
-        android:text="BOOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/book_cover"
+            android:layout_width="200dp"
+            android:layout_height="300dp"/>
 
-    <Button
-        android:text="@string/get_book"
-        android:id="@+id/btn_getbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/book"
+            android:textSize="25dp"
+            android:text="BOOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_likebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/liked" />
+        <Button
+            android:text="@string/get_book"
+            android:id="@+id/btn_getbook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:text="@string/dilike"
-        android:id="@+id/btn_dislikebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_likebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/liked" />
+
+        <Button
+            android:text="@string/dilike"
+            android:id="@+id/btn_dislikebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/btn_profile"
         android:layout_width="match_parent"
@@ -63,11 +68,21 @@
         android:text="Hello World"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+=======
+        <TextView
+            android:layout_marginTop="50dp"
+            android:id="@+id/user_details"
+            android:textSize="25dp"
+            android:text="Hello World"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+>>>>>>> 172526146b3c7f3b2aabcc283fc0dad0aa41de01
 
-    <Button
-        android:text="@string/logout"
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <Button
+            android:text="@string/logout"
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
