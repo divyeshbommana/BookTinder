@@ -94,4 +94,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     implementation( "com.squareup.picasso:picasso:2.4.0")
+    implementation("com.amazonaws:aws-android-sdk-core:2.2.+")
+    implementation("com.amazonaws:aws-android-sdk-lambda:2.2.+")
 }
