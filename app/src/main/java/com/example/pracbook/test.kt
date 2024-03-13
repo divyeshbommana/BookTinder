@@ -27,7 +27,7 @@ fun getRecIndex(): Int {
 }
 
 
-class Main : AppCompatActivity() {
+class Test : AppCompatActivity() {
 
     val functionName = "BookRec"
 
@@ -39,7 +39,7 @@ class Main : AppCompatActivity() {
     // When activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("Lifecycle", "onCreate() in MainActivity is called");
+        Log.d("Lifecycle", "onCreate() in Main is called");
         // Shows the main activity page
         setContentView(R.layout.activity_main)
 
@@ -61,7 +61,7 @@ class Main : AppCompatActivity() {
         // Check if user is null, if null takes user back to login page
         // Else sets text view to user's email
         if(user == null){
-            val intent = Intent(getApplicationContext(), Login::class.java)
+            val intent = Intent(getApplicationContext(), LoginActivity::class.java)
             startActivity(intent)
             finish()
         }else{
@@ -71,7 +71,7 @@ class Main : AppCompatActivity() {
         // When "LOGOUT" button is clicked, takes user back to login activity page
         button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(getApplicationContext(), Login::class.java)
+            val intent = Intent(getApplicationContext(), LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -146,61 +146,61 @@ class Main : AppCompatActivity() {
             }
         }
 
-        lambdaButton.setOnClickListener {
-
-            val cognitoProvider = CognitoCachingCredentialsProvider(
-                this.applicationContext,
-                "us-east-1:4ad44a79-d577-4f0d-863c-7cb76f255372",
-                Regions.US_WEST_1
-            )
-
-            val factory = LambdaInvokerFactory(
-                this.applicationContext,
-                Regions.US_WEST_1, cognitoProvider
-            )
-
-            val myInterface = factory.build(MyInterface::class.java)
-
-            val request = RequestClass("John", "Doe")
-
-            object : AsyncTask<RequestClass, Void, ResponseClass>() {
-                override fun doInBackground(vararg params: RequestClass): ResponseClass? {
-                    // invoke "echo" method. In case it fails, it will throw a
-                    // LambdaFunctionException.
-                    return try {
-                        myInterface.BookRec(params[0])
-                    } catch (lfe: LambdaFunctionException) {
-                        Log.e("Tag", "Failed to invoke echo", lfe)
-                        null
-                    }
-                }
-
-                override fun onPostExecute(result: ResponseClass?) {
-                    if (result == null) {
-                        return
-                    }
-
-                    // Do a toast
-                    Toast.makeText(this@Main, result.getGreetings(), Toast.LENGTH_SHORT).show()
-                }
-            }.execute(request)
-        }
+//        lambdaButton.setOnClickListener {
+//
+//            val cognitoProvider = CognitoCachingCredentialsProvider(
+//                this.applicationContext,
+//                "us-east-1:4ad44a79-d577-4f0d-863c-7cb76f255372",
+//                Regions.US_WEST_1
+//            )
+//
+//            val factory = LambdaInvokerFactory(
+//                this.applicationContext,
+//                Regions.US_WEST_1, cognitoProvider
+//            )
+//
+//            val myInterface = factory.build(MyInterface::class.java)
+//
+//            val request = RequestClass("John", "Doe")
+//
+//            object : AsyncTask<RequestClass, Void, ResponseClass>() {
+//                override fun doInBackground(vararg params: RequestClass): ResponseClass? {
+//                    // invoke "echo" method. In case it fails, it will throw a
+//                    // LambdaFunctionException.
+//                    return try {
+//                        myInterface.BookRec(params[0])
+//                    } catch (lfe: LambdaFunctionException) {
+//                        Log.e("Tag", "Failed to invoke echo", lfe)
+//                        null
+//                    }
+//                }
+//
+//                override fun onPostExecute(result: ResponseClass?) {
+//                    if (result == null) {
+//                        return
+//                    }
+//
+//                    // Do a toast
+//                    Toast.makeText(this@Test, result.getGreetings(), Toast.LENGTH_SHORT).show()
+//                }
+//            }.execute(request)
+//        }
     }
     // When activity is resumed
     override fun onResume() {
         super.onResume()
-        Log.d("Lifecycle", "onResume() in MainActivity is called")
+        Log.d("Lifecycle", "onResume() in Main is called")
     }
 
     // When activity is paused
     override fun onPause() {
         super.onPause()
-        Log.d("Lifecycle", "onPause() in MainActivity is called")
+        Log.d("Lifecycle", "onPause() in Main is called")
     }
 
     // When activity is destroyed
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("Lifecycle", "onDestroy() in MainActivity is called")
+        Log.d("Lifecycle", "onDestroy() in Main is called")
     }
 }

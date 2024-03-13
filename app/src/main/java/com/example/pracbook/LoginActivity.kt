@@ -13,52 +13,52 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.google.firebase.database.database
 
-public class Register : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     // Initilizes Firebase authentication extension to auth variable
     val auth = Firebase.auth
-    // Initilizes Firebase realtime database extension to database variable
-    var database = Firebase.database.reference
 
     // When app starts
     public override fun onStart() {
         super.onStart()
-        Log.d("Lifecycle", "onStart() in RegisterActivity is called");
+        Log.d("Lifecycle", "onStart() in LoginActivity is called");
         // Gets current user using auth, if current user is not equal to null (signed in)
         // Then it takes user to main activity page
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            val intent = Intent(getApplicationContext(), Main::class.java)
+            val intent = Intent(getApplicationContext(), Test::class.java)
             startActivity(intent)
             finish()
         }
     }
 
+
     // When user is not logged in
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("onStart", "onCreate() in LoginActivity is called");
-        // Shows the register activity page
-        setContentView(R.layout.activity_register)
+        Log.d("Lifecycle", "oncreate() in LoginActivity is called");
+        // Shows the login activity page
+        setContentView(R.layout.activity_login)
 
-        // Gets all elements in register activity page
+        // Gets all elements in login activity page
         val editTextEmail = findViewById<EditText>(R.id.email)
         val editTextPassword = findViewById<EditText>(R.id.password)
-        val buttonReg = findViewById<Button>(R.id.btn_register)
+        val buttonLogin = findViewById<Button>(R.id.btn_login)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        val textView = findViewById<TextView>(R.id.loginNow)
+        val textView = findViewById<TextView>(R.id.registerNow)
 
-        // For "Login" text on login page
+        // For "Register" text on login page
         textView.setOnClickListener {
-            val intent = Intent(getApplicationContext(), Login::class.java)
+
+            // If text view is clicked, starts register activity
+            val intent = Intent(getApplicationContext(), RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        // When "REGISTER" button is clicked
-        buttonReg.setOnClickListener{
+        // When "LOGIN" button is clicked
+        buttonLogin.setOnClickListener {
 
             // Sets the progressBar (loading) to become visible
             progressBar.setVisibility(View.VISIBLE)
@@ -69,40 +69,39 @@ public class Register : AppCompatActivity() {
 
             // If either email or password is empty, prompts user to enter field and returns
             if(TextUtils.isEmpty(email)){
-                Toast.makeText(this@Register, "Enter email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this@LoginActivity, "Enter email", Toast.LENGTH_SHORT).show();
                 return@setOnClickListener;
             }
             if(TextUtils.isEmpty(password)) {
-                Toast.makeText(this@Register, "Enter password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this@LoginActivity, "Enter password", Toast.LENGTH_SHORT).show();
                 return@setOnClickListener;
             }
 
             // Authenticates email and password with auth
-            auth.createUserWithEmailAndPassword(email, password)
+            auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     progressBar.setVisibility(View.GONE)
 
-                    // Checks if register is successful or not
+                    // Checks if login is successful or not
                     if (task.isSuccessful) {
                         Toast.makeText(
                             baseContext,
-                            "Account Created",
+                            "Login successful.",
                             Toast.LENGTH_SHORT,
                         ).show()
                         // If successful, starts main activity
-                        val intent = Intent(getApplicationContext(), Main::class.java)
+                        val intent = Intent(getApplicationContext(), Test::class.java)
                         startActivity(intent)
                         finish()
                     } else {
-                        // If sign up fails, display a message to the user.
+                        // If sign in fails, display a message to the user.
                         Toast.makeText(
                             baseContext,
-                            "Authentication failed.",
+                            "Login failed.",
                             Toast.LENGTH_SHORT,
                         ).show()
                     }
                 }
-
 
         }
 

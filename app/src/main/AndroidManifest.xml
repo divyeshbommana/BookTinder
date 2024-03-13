@@ -21,12 +21,12 @@
             android:theme="@style/Theme.AppCompat"/>
 
         <activity
-            android:name=".Register"
+            android:name=".RegisterActivity"
             android:exported="true"
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.AppCompat">
@@ -40,6 +40,5 @@
             android:name=".MainActivity"
             android:exported="true" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 </manifest>
