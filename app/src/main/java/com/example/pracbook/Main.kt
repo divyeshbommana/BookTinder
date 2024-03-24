@@ -94,11 +94,37 @@ class Main : AppCompatActivity() {
 
         // If "GET BOOK" button is clicked
         getBookButton.setOnClickListener {
+
+            var viewedBooks = mutableListOf<String>()
+
+            database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Viewed").get().addOnSuccessListener {
+                for (x in it.children){
+                    viewedBooks.add(x.value.toString())
+                }
+            }
+
             //Gets the liked data
             database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Liked").get().addOnSuccessListener {
                 if(it.childrenCount < 5){
                     // Gets data inside index
                     database.child("Books").child("0").child(getRecIndex().toString()).get().addOnSuccessListener {
+
+                        val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Viewed")
+
+                        // Pushes viewed book's title into "Viewed" subsection in database
+                        data.push().setValue(it.child("actualTitle").value.toString()).addOnSuccessListener {
+                            Toast.makeText(
+                                baseContext,
+                                "Added book to viewed",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }.addOnFailureListener{
+                            Toast.makeText(
+                                baseContext,
+                                "Unable to add book to viewed",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
 
                         // Sets text view to title of book
                         bookTextView.setText(it.child("actualTitle").value.toString())
@@ -121,7 +147,41 @@ class Main : AppCompatActivity() {
                     }
                     println("There are more than 5 books in like and they are: $likedBooks")
                     GlobalScope.launch(Dispatchers.IO) {
-                        callApiRecommend(likedBooks)
+                        val res = callApiRecommend(likedBooks, viewedBooks)
+                        val recommendedBook = res.split("{\"data\":[[1,")[1].split("]]}")[0].replace("[","").replace("]","").split(",")[0]
+
+                        database.child("Books").child("0").child(recommendedBook.toString()).get().addOnSuccessListener {
+                            val data = database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Viewed")
+
+                            // Pushes viewed book's title into "Viewed" subsection in database
+                            data.push().setValue(it.child("actualTitle").value.toString()).addOnSuccessListener {
+                                Toast.makeText(
+                                    baseContext,
+                                    "Added book to viewed",
+                                    Toast.LENGTH_SHORT,
+                                ).show()
+                            }.addOnFailureListener{
+                                Toast.makeText(
+                                    baseContext,
+                                    "Unable to add book to viewed",
+                                    Toast.LENGTH_SHORT,
+                                ).show()
+                            }
+
+                            // Sets text view to title of book
+                            bookTextView.setText(it.child("actualTitle").value.toString())
+
+                            val url = it.child("img").value.toString()
+                            Picasso.with(this@Main).load(url).into(bookCoverImage)
+                        }.addOnFailureListener {
+                            Toast.makeText(
+                                baseContext,
+                                "Error getting recommended book data",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
+
+                        println("res = $recommendedBook")
                     }
                 }
             }.addOnFailureListener {
@@ -172,6 +232,7 @@ class Main : AppCompatActivity() {
                 for (x in it.children){
                     println(x)
                 }
+                getBookButton.performClick();
             }.addOnFailureListener {
                 Toast.makeText(
                     baseContext,
@@ -195,6 +256,7 @@ class Main : AppCompatActivity() {
                     "Added book to disliked",
                     Toast.LENGTH_SHORT,
                 ).show()
+                getBookButton.performClick();
             }.addOnFailureListener{
                 Toast.makeText(
                     baseContext,
@@ -216,6 +278,7 @@ class Main : AppCompatActivity() {
 //                callApiRecommend(abc)
 //            }
 //        }
+        getBookButton.performClick();
     }
 
     private fun callApi() {
@@ -250,8 +313,13 @@ class Main : AppCompatActivity() {
         }
     }
 
-    private fun callApiRecommend(titles: List<String>) {
-
+    private fun callApiRecommend(titles: List<String>, viewed: List<String>): StringBuffer {
+//        val titles = listOf(
+//            "Harry Potter and the Deathly Hallows",
+//            "Fifty Shades of Grey",
+//            "The Golden Compass",
+//            "Steve Jobs"
+//        )
         val url = URL("https://divyeshbommana.app.modelbit.com/v1/recommend/latest")
 
         with(url.openConnection() as HttpURLConnection) {
@@ -259,7 +327,8 @@ class Main : AppCompatActivity() {
             doOutput = true
             setRequestProperty("Content-Type", "application/json")
 
-            val payload = buildPayload(titles)
+            val payload = buildPayload(titles, viewed)
+            //val payload = "{\"data\": [[1,[\"Harry Potter and the Deathly Hallows\", \"Fifty Shades of Grey\", \"The Golden Compass\"], [\"Steve Jobs\"]]]}"
 
             println("payload: ${payload}")
 
@@ -277,16 +346,19 @@ class Main : AppCompatActivity() {
                         inputLine = it.readLine()
                     }
                     println("Response: $response")
+                    return response
                 }
             } else {
                 println("Error: $responseCode - ${responseMessage}")
             }
         }
+        return StringBuffer()
     }
 
-    fun buildPayload(titles: List<String>): String {
+    fun buildPayload(titles: List<String>, viewed: List<String>): String {
         val data = titles.joinToString("\", \"", prefix = "[\"", postfix = "\"]")
-        return "{\"data\": [[1,$data]]}"
+        val viewedData = viewed.joinToString("\", \"", prefix = "[\"", postfix = "\"]")
+        return "{\"data\": [[1,$data, $viewedData]]}"
     }
 
     // When activity is resumed
