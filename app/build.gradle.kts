@@ -94,4 +94,13 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     implementation( "com.squareup.picasso:picasso:2.4.0")
+    implementation("com.amazonaws:aws-android-sdk-core:2.2.+")
+    implementation("com.amazonaws:aws-android-sdk-lambda:2.2.+")
+    implementation("aws.sdk.kotlin:lambda:1.0.30")
+    implementation("aws.sdk.kotlin:secretsmanager:1.0.30")
+    implementation("aws.smithy.kotlin:http-client-engine-okhttp:0.30.0")
+    implementation("aws.smithy.kotlin:http-client-engine-crt:0.30.0")
+    implementation("com.google.code.gson:gson:2.10")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }
