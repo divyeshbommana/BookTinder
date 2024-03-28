@@ -53,22 +53,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile" />
 
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/btn_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile" />
-
-    <TextView
-        android:layout_marginTop="50dp"
-        android:id="@+id/user_details"
-        android:textSize="25dp"
-        android:text="Hello World"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-=======
         <TextView
             android:layout_marginTop="50dp"
             android:id="@+id/user_details"
@@ -76,7 +66,6 @@
             android:text="Hello World"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
->>>>>>> 172526146b3c7f3b2aabcc283fc0dad0aa41de01
 
         <Button
             android:text="@string/logout"

@@ -20,6 +20,8 @@
             android:label="@string/main_activity"
             android:theme="@style/Theme.AppCompat"/>
 
+        <activity android:name=".Profile" />
+
         <activity
             android:name=".Register"
             android:exported="true"

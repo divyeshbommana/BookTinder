@@ -43,7 +43,7 @@ class Main : AppCompatActivity() {
 
         val likeBookButton = findViewById<Button>(R.id.btn_likebook)
         val dislikeBookButton = findViewById<Button>(R.id.btn_dislikebook)
-        val profileView = findViewById<Button>(R.id.btn_profile)
+        val profileButton = findViewById<Button>(R.id.btn_profile)
 
 
         // Bottom of screen to display the user's email
@@ -57,12 +57,22 @@ class Main : AppCompatActivity() {
             textView.setText(user.getEmail())
         }
 
-        // For "profile" button on login page
-        profileView.setOnClickListener {
-            // If text view is clicked, starts register activity
-            val intent = Intent(getApplicationContext(), Profile::class.java)
+//        // Set a click listener for the profile button but changed it to log out sicne I am trying to see if it workds.
+//        profileButton.setOnClickListener {
+//            // Start the Profile activity when the button is clicked
+////            val intent = Intent(getApplicationContext(), Profile::class.java)
+////            startActivity(intent)
+////            finish()
+//
+////            FirebaseAuth.getInstance().signOut()
+//            val intent = Intent(getApplicationContext(), Profile::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+
+        profileButton.setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
             startActivity(intent)
-            finish()
         }
 
         // When "LOGOUT" button is clicked, takes user back to login activity page
