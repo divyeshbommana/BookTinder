@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.PracBook" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="ShapeAppearanceOverlay.App.rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>
