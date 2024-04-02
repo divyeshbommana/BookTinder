@@ -18,7 +18,7 @@
             android:name=".Main"
             android:exported="false"
             android:label="@string/main_activity"
-            android:theme="@style/Theme.AppCompat"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
         <activity
             android:name=".Register"

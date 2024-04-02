@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBgColor"
+    tools:context=".Main">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center|top">
+
+
+        <TextView
+            android:id="@+id/MyLibraryTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border"
+            android:text="@string/myLib"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/libTitleBottomGuide"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toTopOf="@+id/libTitleTopGuide"
+            android:textAlignment="center"
+            android:gravity="center"
+            />
+
+
+        <Button
+            android:id="@+id/MyLibraryButton1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border_grey"
+            android:text="@string/TBD"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide" />
+
+        <Button
+            android:id="@+id/MyLibraryButton2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border_grey"
+            android:text="@string/read"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide3" />
+
+        <Button
+            android:id="@+id/MyLibraryButton3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border_grey"
+            android:text="@string/Reading"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide3"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toBottomOf="@+id/MyLibraryButton1" />
+
+        <Button
+            android:id="@+id/MyLibraryButton4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border_grey"
+            android:text="@string/completed"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide4" />
+
+        <Button
+            android:id="@+id/MyLibraryButton5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_border_grey"
+            android:text="@string/dropped"
+            android:textColor="@color/black"
+            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide6"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/apptitleguide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleguideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libTitleTopGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libTitleBottomGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.20" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.80" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/libButTopGuide8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleHorizontalGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
+
+
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_above="@id/bottomNav"
+                android:layout_below="@id/appName"
+                app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                app:layout_constraintTop_toBottomOf="@id/appName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>
+

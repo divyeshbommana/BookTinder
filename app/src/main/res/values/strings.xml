@@ -25,4 +25,31 @@
     <string name="login_account">Login to your account."</string>
     <string name="create_account">"Want to create a new account?"</string>
     <string name="register_account">"Create your new account!"</string>
+    <string name="home">"Home"</string>
+    <string name="search">"Search"</string>
+    <string name="appname">"BookBae"</string>
+    <string name="heart">"♡"</string>
+
+
+    <!-- Library   -->
+    <string name="myLib">"My Library"</string>
+    <string name="Reading">"Reading"</string>
+    <string name="TBD">"To Be Read"</string>
+    <string name="read">"Read"</string>
+    <string name="completed">"Completed</string>
+    <string name="dropped">"Dropped</string>
+
+    <!--Profile   -->
+    <string name="newPassword">"New Password</string>
+    <string name="updateEmail">"Update Email"</string>
+    <string name="updatePassword">"Update Password"</string>
+    <string name="deleteAccount">"Delete Account"</string>
+    <string name="accountDetails">"--- Account Settings ---</string>
+
+    <!--Dropdown Fragment    -->
+    <string name="addTo">"Add to:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

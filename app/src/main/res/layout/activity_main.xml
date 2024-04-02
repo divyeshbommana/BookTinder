@@ -1,117 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mainBgColor"
+    tools:context=".Main">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        tools:context=".Main"
-        android:background="@color/mainBgColor"
-        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:layout_above="@+id/bottomNav"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center|top">
 
-        <TextView
-            android:id="@+id/Home_Page"
-            android:layout_width="382dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="@string/homepage"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/book_cover"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/book_cover"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+                <TextView
+                    android:id="@+id/appName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/appname"
+                    android:textColor="@color/appBlue"
+                    android:textFontWeight="@integer/material_motion_duration_medium_2"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+                    app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/apptitleguide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".05" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/middleguideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="205dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".05" />
+
+
+
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bookcover_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.15" />
+
+
+                <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_above="@id/bottomNav"
+                    android:layout_below="@id/appName"
+                    app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                    app:layout_constraintTop_toBottomOf="@id/appName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/book"
-            app:layout_constraintEnd_toEndOf="@+id/Home_Page"
-            app:layout_constraintStart_toStartOf="@+id/Home_Page"
-            app:layout_constraintTop_toBottomOf="@+id/Home_Page" />
-
-        <TextView
-            android:id="@+id/book"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="11dp"
-            android:layout_marginRight="11dp"
-            android:layout_marginBottom="47dp"
-            android:text="BOOK"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_likebook"
-            app:layout_constraintEnd_toEndOf="@+id/btn_getbook"
-            app:layout_constraintTop_toBottomOf="@+id/book_cover" />
-
-        <Button
-            android:id="@+id/btn_getbook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/get_book"
-            app:layout_constraintBottom_toTopOf="@+id/btn_likebook"
-            app:layout_constraintEnd_toEndOf="@+id/book_cover"
-            app:layout_constraintStart_toStartOf="@+id/book_cover" />
-
-        <Button
-            android:id="@+id/btn_likebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/liked"
-            app:layout_constraintBottom_toTopOf="@+id/btn_dislikebook"
-            app:layout_constraintEnd_toEndOf="@+id/btn_getbook"
-            app:layout_constraintTop_toBottomOf="@+id/book" />
-
-        <Button
-            android:id="@+id/btn_dislikebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="@string/dilike"
-            app:layout_constraintBottom_toTopOf="@+id/user_details"
-            app:layout_constraintStart_toStartOf="@+id/btn_likebook"
-            app:layout_constraintTop_toBottomOf="@+id/btn_likebook" />
-
-        <!--        <Button-->
-        <!--            android:text="Lambda"-->
-        <!--            android:id="@+id/btn_Lambda"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"/>-->
-
-        <TextView
-            android:id="@+id/user_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="126dp"
-            android:layout_marginLeft="126dp"
-            android:layout_marginEnd="126dp"
-            android:layout_marginRight="126dp"
-            android:text="Hello World"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/logout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/Home_Page"
-            app:layout_constraintTop_toBottomOf="@+id/btn_dislikebook" />
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/logout"
+            android:scrollIndicators="left"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/user_details"
-            app:layout_constraintTop_toBottomOf="@+id/user_details" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:itemBackground="@drawable/bottom_nav_item_color"
+            app:itemIconTint="@drawable/bottom_nav_icon_tint"
+            app:itemTextColor="@drawable/bottom_nav_text_color"
+            app:menu="@menu/my_menu"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconSize="45dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</RelativeLayout>
