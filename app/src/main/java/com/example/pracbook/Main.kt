@@ -55,6 +55,7 @@ class Main : AppCompatActivity() {
         val bookTextView = findViewById<TextView>(R.id.book)
         bookCoverImage = findViewById<ImageView>(R.id.book_cover)
         val profileButton = findViewById<Button>(R.id.btn_profile)
+        val libraryButton = findViewById<Button>(R.id.btn_library)
 
         val bookTitleTextView = findViewById<TextView>(R.id.book_title)
         val bookDescription = findViewById<TextView>(R.id.book_description)
@@ -72,7 +73,7 @@ class Main : AppCompatActivity() {
             bookDescription.setText(it.child("actualGenre").value.toString())
             // Gets book URL and loads it into image view
             val url = it.child("img").value.toString()
-            Picasso.with(this).load(url).into(bookCoverImage)
+            Picasso.with(this@Main).load(url).into(bookCoverImage)
         }.addOnFailureListener {
             Toast.makeText(
                 baseContext,
@@ -111,6 +112,7 @@ class Main : AppCompatActivity() {
                         // Gets book URL and loads it into image view
                         val url = it.child("img").value.toString()
                         Picasso.with(this@Main).load(url).into(bookCoverImage)
+
                     }
                 }.addOnFailureListener{
                     Toast.makeText(
@@ -300,7 +302,10 @@ class Main : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        libraryButton.setOnClickListener {
+            val intent = Intent(this, BookActivity::class.java)
+            startActivity(intent)
+        }
     }
     // When activity is resumed
     override fun onResume() {
