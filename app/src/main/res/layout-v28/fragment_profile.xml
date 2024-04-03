@@ -14,17 +14,17 @@
         android:layout_marginBottom="0dp"
         android:gravity="center|top">
 
-        <TextView
-            android:id="@+id/account"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/accountDetails"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+<!--        <TextView-->
+<!--            android:id="@+id/account"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/accountDetails"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="25dp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/guideline5"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/apptitleguide"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/guideline3" />-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/profileEmail"

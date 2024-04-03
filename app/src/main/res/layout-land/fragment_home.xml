@@ -5,48 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBgColor"
-    tools:context=".Main">
+    tools:context=".Home">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="670dp"
-        android:layout_marginBottom="0dp"
-        android:gravity="center|top">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="670dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="0dp"
+    android:layout_marginBottom="0dp"
+    android:gravity="center|top">
 
 
     <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardBackgroundColor="@color/mainBgColor"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline7"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-            app:layout_constraintTop_toTopOf="@+id/bookcover_top_guideline">
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardBackgroundColor="@color/mainBgColor"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+        app:layout_constraintTop_toTopOf="@+id/bookcover_top_guideline">
 
-            <ImageView
-                android:id="@+id/book_cover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY" />
+        <ImageView
+            android:id="@+id/book_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btn_dislikebook"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/round_button"
-        android:textColor="@color/white"
         android:text="X"
+        android:textColor="@color/white"
         android:textFontWeight="@integer/material_motion_duration_medium_2"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/middleguideline"
-        app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <Button
         android:id="@+id/btn_likebook"
@@ -58,12 +61,11 @@
         android:textColor="@color/white"
         android:textFontWeight="@integer/material_motion_duration_medium_1"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="@+id/middleguideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
 
-        />
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <TextView
         android:id="@+id/book"
@@ -106,13 +108,12 @@
         android:visibility="gone"/>
 
 
-
     <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/apptitleguide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".15" />
+        android:id="@+id/apptitleguide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/middleguideline"
@@ -121,12 +122,12 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".5" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".85" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
@@ -135,12 +136,12 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent=".05" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".7" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.91" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -157,19 +158,12 @@
         app:layout_constraintGuide_percent="0.05" />
 
 
-
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@id/bottomNav"
-        android:layout_below="@id/appName"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"
-        app:layout_constraintTop_toBottomOf="@id/appName" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
 </RelativeLayout>
-

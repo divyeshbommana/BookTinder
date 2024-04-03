@@ -39,11 +39,11 @@
             android:background="@drawable/button_border_grey"
             android:text="@string/TBD"
             android:textColor="@color/black"
-            android:textSize="30dp"
             android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/libButTopGuide2"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintEnd_toStartOf="@+id/middleLeft"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
             app:layout_constraintTop_toTopOf="@+id/libButTopGuide" />
 
         <Button
@@ -55,9 +55,9 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide4"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
+            app:layout_constraintBottom_toTopOf="@+id/middleHorizontalGuide"
+            app:layout_constraintEnd_toStartOf="@+id/middleLeft"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
             app:layout_constraintTop_toTopOf="@+id/libButTopGuide3" />
 
         <Button
@@ -69,11 +69,10 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide3"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-            app:layout_constraintTop_toBottomOf="@+id/MyLibraryButton1" />
+            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="@+id/middleRight"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide" />
 
         <Button
             android:id="@+id/MyLibraryButton4"
@@ -84,10 +83,10 @@
             android:textColor="@color/black"
             android:textFontWeight="@integer/material_motion_duration_long_1"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/libButTopGuide5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-            app:layout_constraintTop_toTopOf="@+id/libButTopGuide4" />
+            app:layout_constraintBottom_toTopOf="@+id/middleHorizontalGuide"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="@+id/middleRight"
+            app:layout_constraintTop_toTopOf="@+id/libButTopGuide3" />
 
         <Button
             android:id="@+id/MyLibraryButton5"
@@ -111,13 +110,6 @@
             app:layout_constraintGuide_percent=".25" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/middleguideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -136,56 +128,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.20" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.20" />
+            app:layout_constraintGuide_percent="0.3" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.30" />
+            app:layout_constraintGuide_percent="0.45" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/libButTopGuide4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.50" />
+            app:layout_constraintGuide_percent="0.5" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60" />
+            app:layout_constraintGuide_percent="0.7" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.70" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/libButTopGuide7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.80" />
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/libButTopGuide8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.90" />
+            app:layout_constraintGuide_percent="0.85" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -193,14 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".7" />
+            app:layout_constraintGuide_percent="0.65" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -209,16 +180,41 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="1.0" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middleRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55" />
+
 
 
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_above="@id/bottomNav"
-            android:layout_below="@id/appName"
-            app:layout_constraintBottom_toTopOf="@id/bottomNav"
-            app:layout_constraintTop_toBottomOf="@id/appName" />
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

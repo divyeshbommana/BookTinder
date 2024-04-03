@@ -14,18 +14,6 @@
         android:layout_marginBottom="0dp"
         android:gravity="center|top">
 
-        <TextView
-            android:id="@+id/account"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/accountDetails"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="@+id/apptitleguide"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/profileEmail"
             android:layout_width="0dp"
@@ -165,35 +153,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libTitleBottomGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2" />
+            app:layout_constraintGuide_percent="0.1" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.35" />
+            app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
+            app:layout_constraintGuide_percent="0.35" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide4"
@@ -207,7 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60" />
+            app:layout_constraintGuide_percent="0.55" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide6"
@@ -221,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.80" />
+            app:layout_constraintGuide_percent="0.75" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/libButTopGuide8"
@@ -261,13 +249,6 @@
             android:layout_below="@id/appName"
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
             app:layout_constraintTop_toBottomOf="@id/appName" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="41dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

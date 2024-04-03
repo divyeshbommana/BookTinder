@@ -1,13 +1,8 @@
 package com.example.pracbook
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Main : AppCompatActivity() {
@@ -19,28 +14,28 @@ class Main : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         loadFragment(Home())
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.home -> {
                     loadFragment(Home())
-                    true
+                    return@setOnItemSelectedListener true
                 }
                 R.id.library -> {
                     loadFragment(Library())
-                    true
+                    return@setOnItemSelectedListener true
                 }
                 R.id.profile -> {
                     loadFragment(Profile())
-                    true
+                    return@setOnItemSelectedListener true
                 }
                 else -> false
             }
         }
     }
 
-    private  fun loadFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
-        transaction.commit()
+    private fun loadFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container,fragment)
+            .commit()
     }
 }
