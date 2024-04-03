@@ -69,7 +69,7 @@ class Library : Fragment() {
         val tobereadBtn = view.findViewById<Button>(R.id.MyLibraryButton1)
 
         tobereadBtn.setOnClickListener {
-            val intent = Intent(requireActivity(), ToBeRead::class.java)
+            val intent = Intent(requireActivity(), Library::class.java)
             startActivity(intent)
         }
     }
