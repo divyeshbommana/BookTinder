@@ -35,7 +35,30 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY" />
 
-        </androidx.cardview.widget.CardView>
+<!--            This is for pop up menu than this.-->
+<!--            <Spinner-->
+<!--                android:id="@+id/spinner_dropdown"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="invisible" />-->
+
+            <LinearLayout
+                android:id="@+id/spinner_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                android:padding="8dp"
+                android:visibility="invisible">
+
+            <Spinner
+                android:id="@+id/spinner_dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
 
 <!--    caed view-->
     <androidx.cardview.widget.CardView

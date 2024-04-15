@@ -9,8 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -46,6 +50,8 @@ class Home : Fragment() {
     private lateinit var bookInfoCard: CardView
     private var isBookCoverVisible = true
     private lateinit var bookCoverImage: ImageView
+    //pop up menu to add books.
+    val spinnerItems = arrayOf("SELECT", "Reading", "Read")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,6 +75,20 @@ class Home : Fragment() {
         //book swipe and flip mechnaism:
         val bookTitleTextView = view.findViewById<TextView>(R.id.book_title)
         val bookDescription = view.findViewById<TextView>(R.id.book_description)
+
+        //code for pop up menu (OLD)
+//        val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
+
+        //4/14/2024
+        val spinnerLayout: LinearLayout = view.findViewById(R.id.spinner_layout)
+        val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, spinnerItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinner.adapter = adapter
+        spinner.setSelection(0)
+
+
 
         // flip card pointer.
         bookInfoCard = view.findViewById(R.id.book_info_card)
@@ -145,6 +165,11 @@ class Home : Fragment() {
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
             }
 
             // Liked Book code
@@ -180,6 +205,11 @@ class Home : Fragment() {
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
             }
 
             // getBook method
@@ -205,6 +235,11 @@ class Home : Fragment() {
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
             }
 
             override fun onClick() {
@@ -212,10 +247,25 @@ class Home : Fragment() {
                 // When user taps on the bookCoverImage, it should flip to display bookInformationCard. How do I this?
                 Toast.makeText(requireActivity(), "User Tapped on this on book image", Toast.LENGTH_SHORT)
                     .show()
+//                //hide the section.
+//                spinnerLayout.visibility = View.INVISIBLE
                 //method to flip card.
                 flipViews()
             }
+
+            //code for pop up menu
+            override fun onLongClick(){
+                super.onLongClick()
+//                should be able to have a drop down menu.
+//                spinner.visibility = View.VISIBLE
+                spinnerLayout.visibility = View.VISIBLE
+                true
+            }
+
+
         })
+
+
 
         // code for book info card.
         bookInfoCard.setOnTouchListener(object : OnSwipeTouchListener(requireActivity()) {
@@ -250,6 +300,10 @@ class Home : Fragment() {
                     ).show()
                 }
 
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
                 flipViews()
             }
 
@@ -285,6 +339,10 @@ class Home : Fragment() {
                     ).show()
                 }
 
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
                 flipViews()
             }
 
@@ -307,8 +365,14 @@ class Home : Fragment() {
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
+
+                //hide the section.
+                spinnerLayout.visibility = View.INVISIBLE
+                //resets the pop up spinner to select.
+                spinner.setSelection(0)
                 //flips once its clicked on.
                 flipViews()
+
             }
 
             override fun onClick() {
@@ -319,7 +383,37 @@ class Home : Fragment() {
                 //method to flip card.I want this to display a new
                 flipViews()
             }
+
+            //code for pop up menu
+            override fun onLongClick(){
+                super.onLongClick()
+//                should be able to have a drop down menu.
+                spinnerLayout.visibility = View.VISIBLE
+                true
+            }
         })
+
+        //pop up code.
+        fun showToast(message: String) {
+            Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show()
+        }
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedItem = spinnerItems[position]
+                when (selectedItem) {
+                    // add
+                    "Reading" -> showToast("You selected Reading")
+                    "Read" -> showToast("You selected Read")
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle case where nothing is selected
+            }
+        }
+
+
+
 
 
 
@@ -503,6 +597,8 @@ class Home : Fragment() {
 
 
 
+
+
     private fun loadFragment(fragment: Fragment) {
         val transaction = childFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
@@ -640,6 +736,8 @@ class Home : Fragment() {
         })
         flipOut.start()
     }
+
+
 }
 
 
