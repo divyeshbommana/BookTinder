@@ -413,11 +413,6 @@ class Home : Fragment() {
             }
         }
 
-
-
-
-
-
         getBookButton.setOnClickListener {
             var viewedBooks = mutableListOf<String>()
             database.child("UserPreferences").child(auth.currentUser?.uid.toString()).child("Viewed").get().addOnSuccessListener {
