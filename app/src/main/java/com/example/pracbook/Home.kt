@@ -401,6 +401,7 @@ class Home : Fragment() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedItem = spinnerItems[position]
+//                val url = ""
                 when (selectedItem) {
                     // add
                     "Reading" -> showToast("You selected Reading")
