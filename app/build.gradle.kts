@@ -52,7 +52,18 @@ android {
 }
 
 dependencies {
-
+    testImplementation ("org.powermock:powermock-module-junit4:2.0.9")
+    testImplementation ("org.powermock:powermock-api-mockito2:2.0.9")
+    // Required -- JUnit 4 framework
+    testImplementation ("junit:junit:4.13.2 ")
+    // Optional -- Robolectric environment
+    testImplementation ("androidx.test:core:1.5.0")
+    // Optional -- Mockito framework
+    testImplementation ("org.mockito:mockito-core:4.9.0")
+    // Optional -- mockito-kotlin
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    // Optional -- Mockk framework
+    testImplementation ("io.mockk:mockk:1.13.3")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.2")
