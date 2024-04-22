@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBgColor"
-    tools:context=".Main">
+    tools:context=".Main"
+    tools:ignore="MissingDefaultResource">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,10 +20,13 @@
             android:gravity="center|top">
 
 
+
+
                 <TextView
                     android:id="@+id/appName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:gravity="center"
                     android:text="@string/appname"
                     android:textColor="@color/appBlue"
@@ -30,6 +34,7 @@
                     android:textSize="40dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="@+id/apptitleguide"
                     app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
@@ -63,7 +68,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layout_constraintGuide_percent=".05" />
+                    app:layout_constraintGuide_percent="0.0" />
+
+
 
 
                 <androidx.constraintlayout.widget.Guideline
@@ -74,38 +81,46 @@
                     app:layout_constraintGuide_percent="0.15" />
 
 
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/navbar_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.85" />
+
+
+
+
                 <FrameLayout
                     android:id="@+id/container"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_above="@id/bottomNav"
                     android:layout_below="@id/appName"
-                    app:layout_constraintTop_toBottomOf="@id/appName" />
+                    app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                    app:layout_constraintTop_toBottomOf="@id/appName"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="0dp" />
+
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:scrollIndicators="left"
+                    app:itemBackground="@drawable/bottom_nav_item_color"
+                    app:itemIconSize="45dp"
+                    app:itemIconTint="@drawable/bottom_nav_icon_tint"
+                    app:itemTextColor="@drawable/bottom_nav_text_color"
+                    app:labelVisibilityMode="unlabeled"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/navbar_guideline"
+                    app:menu="@menu/my_menu" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="1dp"
-            android:scrollIndicators="left"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:itemBackground="@drawable/bottom_nav_item_color"
-            app:itemIconTint="@drawable/bottom_nav_icon_tint"
-            app:itemTextColor="@drawable/bottom_nav_text_color"
-            app:menu="@menu/my_menu"
-            app:labelVisibilityMode="unlabeled"
-            app:itemIconSize="45dp"/>
 
 
 </RelativeLayout>
